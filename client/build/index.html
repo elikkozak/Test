@@ -14,11 +14,16 @@
     <title>Document</title>
   </head>
   <body>
-    <input id="ingredient-input" placeholder="ingerdient name" />
-    <label>Gluten Free <input type="checkbox" id="gluten-checkbox" /></label>
-    <label>Dairy Free <input type="checkbox" id="dairy-checkbox" /></label>
-
-    <button id="search-btn">Search!</button>
+    <div class="search-bar">
+      <div class="check-box"> <label>
+        Gluten Free <input type="checkbox" id="gluten-checkbox" />
+      </div> </label>
+      <div class="check-box"> <label>
+        Dairy Free <input type="checkbox" id="dairy-checkbox" />
+      </div> </label>
+      <input id="ingredient-input" placeholder="ingerdient name" />
+      <button id="search-btn">Search!</button>
+    </div>
     <!-- <div class="menu"></div>
     <script id="menu-template" type="text/x-handlebars-template">
       <ul>
@@ -27,6 +32,32 @@
         {{/each}}
       </ul>
     </script> -->
+    <div class="recipes-container"></div>
+
+    <script id="recipe-template" type="text/x-handlebars-template">
+      {{#each recipes}}
+        <div class="recipe-card">
+          <img
+            class="recipe-img"
+            src={{this.thumbnail}}
+            width="70%"
+            height="300px"
+          />
+          <div class="recipe-name">{{this.title}}</div>
+          <div class="recipe-ingredients">
+            <ul><u>Ingredients</u>
+          {{#each this.ingredients}}
+          <li class="recipe-ingredient">{{this}}</li>
+          {{/each}}
+        </ul>
+        </div>
+          <div class="recipe-href"> <a href={{this.href}}>video</a></div>
+        </div>
+      {{/each}}
+    </script>
+
+   
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.6.1.js"
