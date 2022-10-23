@@ -1,5 +1,8 @@
 "use strict";
-// const menuData = {
+class ViewModule {
+    renderPage(result) {
+    }
+}
 //     menu: [
 //       { name: "Google", link: "http://google.com" },
 //       { name: "Facebook", link: "http://facebook.com" },
