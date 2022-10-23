@@ -1,4 +1,7 @@
-// const menuData = {
+const view = function(){
+}
+
+
 //     menu: [
 //       { name: "Google", link: "http://google.com" },
 //       { name: "Facebook", link: "http://facebook.com" },
