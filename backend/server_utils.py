@@ -48,6 +48,12 @@ def get_non_dairy_recipes(recipes):
         recipe, allergic_ingredients), recipes))
     return recipes
 
-def filter_relevant_data_from_recipes(recipes):
-    recipes_data = map(lambda recipe:{recipe["title"],recipe["thumbnail"],recipe["ingredients"],recipe["href"]},recipes)
-    return list(recipes_data)
+
+def create_recipe_obj(recipe_data):
+    return {
+
+        "title": recipe_data["title"],
+        "thumbnail": recipe_data["thumbnail"],
+        "ingredients": recipe_data["ingredients"],
+        "href":recipe_data["href"]
+    }

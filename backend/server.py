@@ -22,17 +22,18 @@ def root():
 
 
 @app.get("/recipes")
-def get_recipes(ingredient_name, filter_by_gluten, filter_by_dairy):
+def get_recipes(ingredientName, filterByGluten, filterByDairy):
     recipes = requests.get(
-        f"https://recipes-goodness.herokuapp.com/recipes/{ingredient_name}").json()["results"]
-    if filter_by_gluten == "true":
+        f"https://recipes-goodness.herokuapp.com/recipes/{ingredientName}").json()["results"]
+    if filterByGluten == "true":
         recipes = get_non_gluten_recipes(recipes)
-    if filter_by_dairy == "true":
+    if filterByDairy == "true":
         recipes = get_non_dairy_recipes(recipes)
 
-    recipes = filter_relevant_data_from_recipes(recipes)
+    recipes_data_list = [create_recipe_obj(
+        recipe_data) for recipe_data in recipes]
 
-    return {"recipes" :recipes}
+    return {"recipes": recipes_data_list}
 
 
 if __name__ == "__main__":
