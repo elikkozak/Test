@@ -24,7 +24,7 @@ def root():
 @app.get("/")
 def get_recipes(ingredient, is_gluten, is_dairy):
     recipes = requests.get(
-        f"https://recipes-goodness.herokuapp.com/recipes/cheese").json()
+        f"https://recipes-goodness.herokuapp.com/recipes/cheese").json()["results"]
     if is_gluten:
         recipes = get_non_gluten_recipes(recipes)
     if is_dairy:
