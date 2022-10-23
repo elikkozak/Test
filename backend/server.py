@@ -3,6 +3,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 import requests
+from server_utils import *
 
 
 app = FastAPI()
@@ -25,9 +26,9 @@ def get_recipes(ingredient, is_gluten, is_dairy):
     recipes = requests.get(
         f"https://recipes-goodness.herokuapp.com/recipes/cheese").json()
     if is_gluten:
-        recipes= get_non_gluten_recipes(recipes)
+        recipes = get_non_gluten_recipes(recipes)
     if is_dairy:
-        recipes= get_non_dairy_recipes(recipes)
+        recipes = get_non_dairy_recipes(recipes)
 
     return recipes
 
