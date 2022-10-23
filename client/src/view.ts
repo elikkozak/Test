@@ -1,4 +1,9 @@
-const view = function(){
+class ViewModule{
+    renderPage(result:any){
+        
+    }
+
+
 }
 
 

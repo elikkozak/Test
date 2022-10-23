@@ -47,3 +47,7 @@ def get_non_dairy_recipes(recipes):
     recipes = list(filter(lambda recipe: is_recipe_free_from_allergic_ingredients(
         recipe, allergic_ingredients), recipes))
     return recipes
+
+def filter_relevant_data_from_recipes(recipes):
+    recipes_data = map(lambda recipe:{recipe["title"],recipe["thumbnail"],recipe["ingredients"],recipe["href"]},recipes)
+    return list(recipes_data)
